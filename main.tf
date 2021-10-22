@@ -1,9 +1,9 @@
 ######
 # locals allow me to organize and merge values 
-# and create complete local settings reference
-# variables therefore do little validation due
-# to TF not having a good method for handling
-# optional attributes (only method in preview)
+# and create flexible objects with optional
+# attributes via merge() for applying settings.
+#This may be redone when terraform adds a 
+# native feature (one is in preview)
 ######
 
 locals {

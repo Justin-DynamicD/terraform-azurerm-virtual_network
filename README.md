@@ -32,3 +32,54 @@ module "vnet" {
 ```
 
 In this example, the network gateways in `ngw_subnet_azs` will be asigned to the subnet in `subnets` with the matching name.  As network2 does not have an associated key in `ngw_subnet_azs`, it will not get a NGW assigned.
+
+## Variable Blocks
+
+### global_settings
+
+```yaml
+global_settings = {
+  location            = ""
+  name                = ""
+  resource_group_name = ""
+}
+```
+
+| name | type | required | description |
+| --- | --- | --- | --- |
+| location | string | yes | sets the region for all resources created |
+| name | string | yes | used for both the name of the virtual network and supporting resources where needed |
+| resource_group_name | string | yes | name of the resource group in which to place all created resources |
+
+### network
+
+```yaml
+network = {
+  address_spaces = []
+  dns_servers    = []
+}
+```
+
+| name | type | required | description |
+| --- | --- | --- | --- |
+| address_spaces | list(string) | yes | list of CIDR blocks for the vnet ex: "10.0.0.0/8" |
+| dns_servers | list(string) | no | override Azure DNS servers with a defined set |
+
+### ngw_settings
+
+```yaml
+ngw_settings = {
+  public_ip_allocation_method = "Static"
+  public_ip_sku               = "Standard"
+  ngw_sku                     = "Standard"
+  idle_timeout_in_minutes     = "10"
+}
+```
+
+| name | type | required | description |
+| --- | --- | --- | --- |
+| public_ip_allocation_method | string | no | defaults to Static |
+| public_ip_sku | string | no | defaults to Standard |
+| ngw_sku | string | no | defaults to Standard |
+| idle_timeout_in_minutes | string | no | defaults to 10 |
+
