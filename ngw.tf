@@ -1,6 +1,6 @@
 resource "azurerm_public_ip" "main" {
   for_each            = local.ngw_subnet_azs
-  name                = "${local.global_settings.name_prefix}${each.key}"
+  name                = "${local.global_settings.name}-${each.key}"
   location            = local.global_settings.location
   resource_group_name = local.global_settings.resource_group_name
   allocation_method   = local.ngw_settings.public_ip_allocation_method
@@ -11,7 +11,7 @@ resource "azurerm_public_ip" "main" {
 
 resource "azurerm_nat_gateway" "main" {
   for_each                                  = local.ngw_subnet_azs
-  name                                      = "${local.global_settings.name_prefix}${each.key}"
+  name                                      = "${local.global_settings.name}-${each.key}"
   location                                  = local.global_settings.location
   resource_group_name                       = local.global_settings.resource_group_name
   sku_name                                  = local.ngw_settings.ngw_sku

@@ -10,12 +10,10 @@ locals {
   defaults = {
     global_settings   = {
       location            = ""
-      name_prefix         = ""
-      name_suffix         = ""
+      name                = ""
       resource_group_name = ""
     }
     network = {
-      name               = ""
       address_spaces     = []
       dns_servers        = []
     }

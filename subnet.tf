@@ -1,5 +1,5 @@
 resource azurerm_virtual_network "main" {
-  name                = "${local.global_settings.name_prefix}${local.network.name}"
+  name                = local.global_settings.name
   resource_group_name = local.global_settings.resource_group_name
   location            = local.global_settings.location
   address_space       = local.network.address_spaces
@@ -9,7 +9,7 @@ resource azurerm_virtual_network "main" {
 
 resource "azurerm_subnet" "subnet" {
   for_each                                       = local.subnets
-  name                                           = "${local.global_settings.name_prefix}${each.key}"
+  name                                           = each.key
   resource_group_name                            = local.global_settings.resource_group_name
   virtual_network_name                           = azurerm_virtual_network.main.name
   address_prefixes                               = [each.value]
