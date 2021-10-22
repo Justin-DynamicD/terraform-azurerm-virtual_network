@@ -7,6 +7,7 @@ module "myvnet" {
   source = "github.com/Justin-DynamicD/terraform-azurerm-virtual_network.git"
   global_settings  = {
     name                = "example_vnet"
+    location            = azurerm_resource_group.example.location
     resource_group_name = azurerm_resource_group.example.name
   }
   network = {

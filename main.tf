@@ -32,7 +32,7 @@ locals {
   }
 
   # merge the default vlaues with varaibles here:
-  global_settings   = merge(local.defaults.global_settings, { "location" = data.azurerm_resource_group.main.location }, var.global_settings)
+  global_settings   = merge(local.defaults.global_settings, var.global_settings)
   network           = merge(local.defaults.network, var.network)
   ngw_settings      = merge(local.defaults.ngw_settings, var.ngw_settings)
   ngw_subnet_azs    = merge(local.defaults.ngw_subnet_azs, var.ngw_subnet_azs)
