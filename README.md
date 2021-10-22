@@ -32,35 +32,3 @@ module "vnet" {
 ```
 
 In this example, the network gateways in `ngw_subnet_azs` will be asigned to the subnet in `subnets` with the matching name.  As network2 does not have an associated key in `ngw_subnet_azs`, it will not get a NGW assigned.
-
-```yaml
-module "myvnet" {
-  source = "../../resources/terraform/network_stack"
-  global_settings  = {
-    environment         = "uat",
-    location            = "West US 2"
-    name_prefix         = "company"
-    resource_group_name = azurerm_resource_group.main.name
-  }
-  network = {
-    address_spaces     = ["10.10.0.0/16"]
-  }
-  subnets = {
-    agw1 = "10.10.100.0/24"
-    private1 = "10.10.0.0/20"
-    private2 = "10.10.16.0/20"
-    private3 = "10.10.32.0/20"
-  }
-  ngw_subnet_azs = {
-    private1 = "1"
-    private2 = "2"
-    private3 = "3"
-  }
-  tags = {
-    Project   = "networking"
-    Terraform = true
-  }
-}
-```
-
-The above options will create a virtual network with 4 subnets, 3 of which will have a NAT gateway defined and zoned to the declared zones.  Zonal promise can be skipped by leaving the zone id at 'NULL'.  All networks will be named accordingly.

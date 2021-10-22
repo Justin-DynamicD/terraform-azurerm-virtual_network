@@ -1,0 +1,8 @@
+.git/
+.terraform/
+**/.terraform.tfstate.lock.info
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.*.backup
+config/
+**.zip
