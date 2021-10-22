@@ -1,3 +1,7 @@
+provider azurerm {
+  features{}
+}
+
 resource azurerm_resource_group "example" {
   name = "example"
   location = "westus2"
@@ -14,7 +18,7 @@ module "myvnet" {
     address_spaces     = ["10.10.0.0/16"]
   }
   subnets = {
-    agw1 = "10.10.100.0/24"
+    agw = "10.10.100.0/24"
     private1 = "10.10.0.0/20"
     private2 = "10.10.16.0/20"
     private3 = "10.10.32.0/20"
