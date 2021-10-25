@@ -83,3 +83,32 @@ ngw_settings = {
 | ngw_sku | string | no | defaults to Standard |
 | idle_timeout_in_minutes | string | no | defaults to 10 |
 
+### subnets
+
+```yaml
+subnets = {
+  subnet1 = "192.168.1.0/24"
+}
+```
+
+This is a key/value list of subnet names and IP ranges. All IP ranges must fit within the superscope defined in `network.address_spaces`. Excluding this map will will create a network with no subnets defined.
+
+### ngw_subnet_azs
+
+```yaml
+ngw_subnet_azs = {
+  subnet1 = null
+}
+```
+
+This is a key/value list of subnet names that will have a NAT gateway created and associated.  The key is the name of the matching subnet, the value can be defined as `null` to creeate a regional NGW, or a `int` can be defined to assign the NGW to a specific availability zone and create a zonal promise.  This `int` must be a valid availability zone in a supported region.
+
+### tags
+
+```yaml
+tags = {
+  Terraform = "true"
+}
+```
+
+Map of tags to apply to every resource that is created.

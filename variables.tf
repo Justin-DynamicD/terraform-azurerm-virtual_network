@@ -4,9 +4,12 @@
 ######
 
 variable global_settings {
-  type        = map(any)
+  type        = object ({
+    location            = string
+    name                = string
+    resource_group_name = string
+  })
   description = "collection of global variables common to evey resource"
-  default     = null
 }
 
 variable network {
