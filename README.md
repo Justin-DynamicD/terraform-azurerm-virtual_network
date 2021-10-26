@@ -11,7 +11,7 @@ This module bundles variables together into a map of strings fairly regularly, a
 
 ```yaml
 module "vnet" {
-  source = "../../resources/terraform/network_stack"
+  source = "github.com/Justin-DynamicD/terraform-azurerm-virtual_network.git"
   global_settings  = {
     location            = "West US 2"
     resource_group_name = ""
