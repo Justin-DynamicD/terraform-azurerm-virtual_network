@@ -11,7 +11,7 @@ This module bundles variables together into a map of strings fairly regularly, a
 
 ```yaml
 module "vnet" {
-  source = "github.com/Justin-DynamicD/terraform-azurerm-virtual_network.git"
+  source  = "Justin-DynamicD/virtual_network/azurerm"
   global_settings  = {
     location            = "West US 2"
     resource_group_name = ""
@@ -45,11 +45,11 @@ global_settings = {
 }
 ```
 
-| name | type | required | description |
-| --- | --- | --- | --- |
-| location | string | yes | sets the region for all resources created |
-| name | string | yes | used for both the name of the virtual network and supporting resources where needed |
-| resource_group_name | string | yes | name of the resource group in which to place all created resources |
+| name | type | required | default | description |
+| --- | --- | --- | --- | --- |
+| location | string | yes | - | sets the region for all resources created |
+| name | string | yes | - | used for both the name of the virtual network and supporting resources where needed |
+| resource_group_name | string | yes | - | name of the resource group in which to place all created resources |
 
 ### network
 
@@ -60,10 +60,10 @@ network = {
 }
 ```
 
-| name | type | required | description |
-| --- | --- | --- | --- |
-| address_spaces | list(string) | yes | list of CIDR blocks for the vnet ex: "10.0.0.0/8" |
-| dns_servers | list(string) | no | override Azure DNS servers with a defined set |
+| name | type | required | default | description |
+| --- | --- | --- | --- | --- |
+| address_spaces | list(string) | yes | - | list of CIDR blocks for the vnet ex: "10.0.0.0/8" |
+| dns_servers | list(string) | no | [] | override Azure DNS servers with a defined set |
 
 ### ngw_settings
 
@@ -76,12 +76,12 @@ ngw_settings = {
 }
 ```
 
-| name | type | required | description |
-| --- | --- | --- | --- |
-| public_ip_allocation_method | string | no | defaults to Static |
-| public_ip_sku | string | no | defaults to Standard |
-| ngw_sku | string | no | defaults to Standard |
-| idle_timeout_in_minutes | string | no | defaults to 10 |
+| name | type | required | default | description |
+| --- | --- | --- | --- | --- |
+| public_ip_allocation_method | string | no | Static | public IP address allocation method |
+| public_ip_sku | string | no | Standard | SKU/Tier for the Public IP |
+| ngw_sku | string | no | Standard | SKU/Tier for the NAT Gateway |
+| idle_timeout_in_minutes | string | no | 10 | session timeout for NAT Gateway |
 
 ### subnets
 
