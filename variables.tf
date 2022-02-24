@@ -33,7 +33,7 @@ variable ngw_settings {
 variable ngw_subnet_azs {
   type        = map(any)
   description = "assign specific AZs to subnets using NAT gateway"
-  default     = null
+  default     = {}
 }
 
 variable service_endpoints {
