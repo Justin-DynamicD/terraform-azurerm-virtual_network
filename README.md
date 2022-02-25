@@ -112,3 +112,15 @@ tags = {
 ```
 
 Map of tags to apply to every resource that is created.
+
+## Outputs
+
+This module will provide the following outputs:
+
+| name | type | description |
+| --- | --- | --- |
+| vnet_address_space | string | The address space of the newly created vNet |
+| vnet_id | string | The id of the newly created vNet |
+| vnet_location | string | The location of the newly created vNet |
+| vnet_name | string | The name of the newly created vNet |
+| vnet_subnets | listof objects | list of subnet objects for each subnet |

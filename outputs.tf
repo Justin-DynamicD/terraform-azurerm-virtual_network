@@ -1,19 +1,24 @@
 output "vnet_address_space" {
-  value = azurerm_virtual_network.main.address_space
+  description = "The address space of the newly created vNet"
+  value       = azurerm_virtual_network.main.address_space
 }
 
 output "vnet_id" {
-  value = azurerm_virtual_network.main.id
+  description = "The id of the newly created vNet"
+  value       = azurerm_virtual_network.main.id
 }
 
 output "vnet_location" {
-  value = azurerm_virtual_network.main.location
+  description = "The location of the newly created vNet"
+  value       = azurerm_virtual_network.main.location
 }
 
 output "vnet_name" {
-  value = azurerm_virtual_network.main.name
+  description = "The name of the newly created vNet"
+  value       = azurerm_virtual_network.main.name
 }
 
 output "vnet_subnets" {
-  value =  azurerm_subnet.subnet
+  description = "list of subnet objects for each subnet"
+  value       =  azurerm_subnet.subnet
 }
