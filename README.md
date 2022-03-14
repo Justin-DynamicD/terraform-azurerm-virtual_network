@@ -101,7 +101,7 @@ ngw_subnet_azs = {
 }
 ```
 
-This is a key/value list of subnet names that will have a NAT gateway created and associated.  The key is the name of the matching subnet, the value can be defined as `null` to creeate a regional NGW, or a `int` can be defined to assign the NGW to a specific availability zone and create a zonal promise.  This `int` must be a valid availability zone in a supported region.
+This is a key/value list of subnet names that will have a NAT gateway created and associated.  The key is the name of the matching subnet, the value can be defined as `null` to create a regional NGW, or a `int` can be defined to assign the NGW to a specific availability zone and create a zonal promise.  This `int` must be a valid availability zone in a supported region.
 
 ### tags
 
