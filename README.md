@@ -93,6 +93,36 @@ subnets = {
 
 This is a key/value list of subnet names and IP ranges. All IP ranges must fit within the superscope defined in `network.address_spaces`. Excluding this map will will create a network with no subnets defined.
 
+### subnet_service_endpoints
+
+```yaml
+subnet_service_endpoints = {
+  subnet1 = ["Microsoft.KeyVault"]
+}
+```
+
+This map contains lists of services to associate with said subnet.
+
+### subnet_enforce_private_link_endpoint_network_policies
+
+```yaml
+subnet_enforce_private_link_endpoint_network_policies = {
+  subnet1 = true
+}
+```
+
+A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false.
+
+### subnet_enforce_private_link_service_network_policies
+
+```yaml
+subnet_enforce_private_link_service_network_policies = {
+  subnet1 = true
+}
+```
+
+A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link service on the subnet. Default value is false.
+
 ### ngw_subnet_azs
 
 ```yaml
@@ -101,7 +131,7 @@ ngw_subnet_azs = {
 }
 ```
 
-This is a key/value list of subnet names that will have a NAT gateway created and associated.  The key is the name of the matching subnet, the value can be defined as `null` to creeate a regional NGW, or a `int` can be defined to assign the NGW to a specific availability zone and create a zonal promise.  This `int` must be a valid availability zone in a supported region.
+This is a key/value list of subnet names that will have a NAT gateway created and associated.  The key is the name of the matching subnet, the value can be defined as `null` to create a regional NGW, or a `int` can be defined to assign the NGW to a specific availability zone and create a zonal promise.  This `int` must be a valid availability zone in a supported region.
 
 ### tags
 
