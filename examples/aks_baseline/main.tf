@@ -19,11 +19,11 @@ module "myvnet" {
   }
   subnets = {
     agw          = "10.10.100.0/24"
-    internal_lb  = "10.10.110.0/24"
-    aks          = "10.10.10.0/24"
-    private_link = "10.10.5.0/24"
+    aks_ingress  = "10.10.110.0/24"
+    aks_nodes    = "10.10.50.0/24"
+    private_link = "10.10.10.0/24"
   }
-  subnet_enforce_private_link_endpoint_network_policies = {
+  subnet_enforce_private_link_service_network_policies = {
     private_link = true
   }
   subnet_service_endpoints = {
