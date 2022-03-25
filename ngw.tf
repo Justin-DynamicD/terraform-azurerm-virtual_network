@@ -5,7 +5,7 @@ resource "azurerm_public_ip" "main" {
   resource_group_name = local.global_settings.resource_group_name
   allocation_method   = local.ngw_settings.public_ip_allocation_method
   sku                 = local.ngw_settings.public_ip_sku
-  availability_zone   = each.value != null ? each.value : null
+  zones               = each.value != null ? [each.value] : null
   tags                = local.tags
 }
 
