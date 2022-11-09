@@ -23,7 +23,7 @@ module "myvnet" {
     aks_nodes    = "10.10.50.0/24"
     private_link = "10.10.10.0/24"
   }
-  subnet_enforce_private_link_service_network_policies = {
+  private_link_service_network_policies_enabled = {
     private_link = true
   }
   subnet_service_endpoints = {

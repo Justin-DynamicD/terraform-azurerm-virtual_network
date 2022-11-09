@@ -42,13 +42,13 @@ variable subnet_service_endpoints {
   default     = {}
 }
 
-variable "subnet_enforce_private_link_endpoint_network_policies" {
+variable "private_endpoint_network_policies_enabled" {
   description = "A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false."
   type        = map(bool)
   default     = {}
 }
 
-variable "subnet_enforce_private_link_service_network_policies" {
+variable "private_link_service_network_policies_enabled" {
   description = "A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link service on the subnet. Default value is false."
   type        = map(bool)
   default     = {}

@@ -28,8 +28,8 @@ locals {
   global_settings                                       = var.global_settings
   ngw_subnet_azs                                        = var.ngw_subnet_azs
   subnet_service_endpoints                              = var.subnet_service_endpoints
-  subnet_enforce_private_link_endpoint_network_policies = var.subnet_enforce_private_link_endpoint_network_policies
-  subnet_enforce_private_link_service_network_policies  = var.subnet_enforce_private_link_service_network_policies
+  private_endpoint_network_policies_enabled             = var.private_endpoint_network_policies_enabled
+  private_link_service_network_policies_enabled         = var.private_link_service_network_policies_enabled
   subnets                                               = var.subnets
   tags                                                  = var.tags
 }
