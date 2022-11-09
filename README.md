@@ -103,20 +103,20 @@ subnet_service_endpoints = {
 
 This map contains lists of services to associate with said subnet.
 
-### subnet_enforce_private_link_endpoint_network_policies
+### private_endpoint_network_policies_enabled
 
 ```yaml
-subnet_enforce_private_link_endpoint_network_policies = {
+private_endpoint_network_policies_enabled = {
   subnet1 = true
 }
 ```
 
 A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false.
 
-### subnet_enforce_private_link_service_network_policies
+### private_link_service_network_policies_enabled
 
 ```yaml
-subnet_enforce_private_link_service_network_policies = {
+private_link_service_network_policies_enabled = {
   subnet1 = true
 }
 ```
