@@ -1,6 +1,6 @@
 ######
-# these variablles are mostly just maps with descriptions
-# See the main.tf for defaults and validation for now
+# With the new optional attributes feature in 1.3 this
+# is once again a complete var collection with defaults
 ######
 
 variable global_settings {
@@ -13,9 +13,12 @@ variable global_settings {
 }
 
 variable network {
-  type        = map(any)
+  type        = object ({
+    address_spaces     = optional(list(string), [])
+    dns_servers        = optional(list(string), [])
+  })
+  default     = {}
   description = "collection of network setings for the virtual network"
-  default     = null
 }
 
 variable subnets {
@@ -25,9 +28,14 @@ variable subnets {
 }
 
 variable ngw_settings {
-  type        = map(any)
+  type        = object ({
+    public_ip_allocation_method = optional(string, "Static")
+    public_ip_sku               = optional(string, "Standard")
+    ngw_sku                     = optional(string, "Standard")
+    idle_timeout_in_minutes     = optional(number, 10)
+  })
+  default     = {}
   description = "collection of NAT gateway setings"
-  default     = null
 }
 
 variable ngw_subnet_azs {
