@@ -20,5 +20,5 @@ output "vnet_name" {
 
 output "vnet_subnets" {
   description = "list of subnet objects for each subnet"
-  value       =  azurerm_subnet.subnet
+  value       = azurerm_subnet.subnet
 }

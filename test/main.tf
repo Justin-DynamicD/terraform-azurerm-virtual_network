@@ -1,43 +1,43 @@
-provider azurerm {
-  features{}
+provider "azurerm" {
+  features {}
 }
 
-resource azurerm_resource_group "test" {
-  name = "test-virtual-network"
+resource "azurerm_resource_group" "test" {
+  name     = "test-virtual-network"
   location = "westus2"
 }
 
 module "basic" {
   source = "../"
-  global_settings  = {
+  global_settings = {
     name                = "basic_vnet"
     location            = azurerm_resource_group.test.location
     resource_group_name = azurerm_resource_group.test.name
   }
   network = {
-    address_spaces     = ["10.10.0.0/16"]
+    address_spaces = ["10.10.0.0/16"]
   }
   subnets = {
     default = "10.10.100.0/24"
   }
   tags = {
-    Test   = "basic"
+    Test      = "basic"
     Terraform = true
   }
 }
 
 module "multi_az" {
   source = "../"
-  global_settings  = {
+  global_settings = {
     name                = "multi_az_vnet"
     location            = azurerm_resource_group.test.location
     resource_group_name = azurerm_resource_group.test.name
   }
   network = {
-    address_spaces     = ["10.10.0.0/16"]
+    address_spaces = ["10.10.0.0/16"]
   }
   subnets = {
-    agw = "10.10.100.0/24"
+    agw      = "10.10.100.0/24"
     private1 = "10.10.0.0/20"
     private2 = "10.10.16.0/20"
     private3 = "10.10.32.0/20"
@@ -48,20 +48,20 @@ module "multi_az" {
     private3 = "3"
   }
   tags = {
-    Test   = "multi-az"
+    Test      = "multi-az"
     Terraform = true
   }
 }
 
 module "aks" {
   source = "../"
-  global_settings  = {
+  global_settings = {
     name                = "aks_vnet"
     location            = azurerm_resource_group.test.location
     resource_group_name = azurerm_resource_group.test.name
   }
   network = {
-    address_spaces     = ["10.10.0.0/16"]
+    address_spaces = ["10.10.0.0/16"]
   }
   subnets = {
     agw          = "10.10.100.0/24"
@@ -73,10 +73,10 @@ module "aks" {
     private_link = true
   }
   subnet_service_endpoints = {
-    private_link = ["Microsoft.KeyVault","Microsoft.ContainerRegistry"]
+    private_link = ["Microsoft.KeyVault", "Microsoft.ContainerRegistry"]
   }
   tags = {
-    Test   = "aks"
+    Test      = "aks"
     Terraform = true
   }
 }

@@ -10,14 +10,14 @@ resource "azurerm_public_ip" "main" {
 }
 
 resource "azurerm_nat_gateway" "main" {
-  for_each                                  = local.ngw_subnet_azs
-  name                                      = "${local.global_settings.name}-${each.key}"
-  location                                  = local.global_settings.location
-  resource_group_name                       = local.global_settings.resource_group_name
-  sku_name                                  = local.ngw_settings.ngw_sku
-  idle_timeout_in_minutes                   = local.ngw_settings.idle_timeout_in_minutes
-  zones                                     = each.value != null ? [each.value] : null
-  tags                                      = local.tags
+  for_each                = local.ngw_subnet_azs
+  name                    = "${local.global_settings.name}-${each.key}"
+  location                = local.global_settings.location
+  resource_group_name     = local.global_settings.resource_group_name
+  sku_name                = local.ngw_settings.ngw_sku
+  idle_timeout_in_minutes = local.ngw_settings.idle_timeout_in_minutes
+  zones                   = each.value != null ? [each.value] : null
+  tags                    = local.tags
 }
 
 # associate the IP and subnet

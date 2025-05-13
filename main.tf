@@ -10,7 +10,7 @@ locals {
   network                                       = var.network
   ngw_settings                                  = var.ngw_settings
   ngw_subnet_azs                                = var.ngw_subnet_azs
-  private_endpoint_network_policies_enabled     = var.private_endpoint_network_policies_enabled
+  private_endpoint_network_policies             = var.private_endpoint_network_policies
   private_link_service_network_policies_enabled = var.private_link_service_network_policies_enabled
   subnet_service_endpoints                      = var.subnet_service_endpoints
   subnets                                       = var.subnets
