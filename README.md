@@ -103,15 +103,15 @@ subnet_service_endpoints = {
 
 This map contains lists of services to associate with said subnet.
 
-### private_endpoint_network_policies_enabled
+### private_endpoint_network_policies
 
 ```yaml
-private_endpoint_network_policies_enabled = {
-  subnet1 = true
+private_endpoint_network_policies = {
+  subnet1 = "Enabled"
 }
 ```
 
-A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false.
+A map with key (string) `subnet name`, value (string) [`Enabled`, `Disabled`, `NetworkSecurityGroupEnabled`, `RouteTableEnabled`] to indicate network policies for the private link endpoint on the subnet. Default value is `Disabled`.
 
 ### private_link_service_network_policies_enabled
 
