@@ -17,9 +17,3 @@ resource "azurerm_subnet" "subnet" {
   private_endpoint_network_policies             = lookup(local.private_endpoint_network_policies, each.key, "Disabled")
   private_link_service_network_policies_enabled = lookup(local.private_link_service_network_policies_enabled, each.key, false)
 }
-
-# resource "azurerm_subnet_route_table_association" "vnet" {
-#   for_each       = var.route_tables_ids
-#   route_table_id = each.value
-#   subnet_id      = local.azurerm_subnets[each.key]
-# }

@@ -57,7 +57,7 @@ variable "private_endpoint_network_policies" {
 
   validation {
     condition     = alltrue([for v in var.private_endpoint_network_policies : v == "Enabled" || v == "Disabled" || v == "NetworkSecurityGroupEnabled" || v == "RouteTableEnabled"])
-    error_message = "Each subnet policy must be either 'Enabled' or 'Disabled'."
+    error_message = "Each subnet policy must be one of [`Enabled`, `Disabled`, `NetworkSecurityGroupEnabled`, `RouteTableEnabled`]."
   }
 }
 
